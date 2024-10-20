@@ -12,7 +12,7 @@ Clone the repository by visiting the following link:
 
 ### Watch Before Starting
 
-Watch this video before starting:  
+Watch this video before starting:
 [https://youtu.be/Zdc1fR0C3xg](https://youtu.be/Zdc1fR0C3xg)
 
 ### Optimistic UI Update

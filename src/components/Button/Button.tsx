@@ -13,24 +13,28 @@ type ButtonProps = {
   onMouseEnter?: (event: MouseEvent<HTMLButtonElement>) => void;
   onMouseLeave?: (event: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
+  width?: 'full'|'default';
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
   isLoading?: boolean;
 };
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { color = 'primary', isLoading, disabled, ...remainingProps } = props;
+  const { color = 'primary',type='submit',width='default', isLoading, disabled, ...remainingProps } = props;
 
   return (
     <button
+      type={type}
       className={clsx(styles.button, {
         [styles.primary]: color === 'primary',
         [styles.secondary]: color === 'secondary',
         [styles.danger]: color === 'danger',
+        [styles.full]:width ==='full',
         [styles.isLoading]: isLoading,
       })}
       disabled={disabled || isLoading}
       {...remainingProps}
     >
-      <span>{props.children}</span>
+      <span className='m-auto'>{props.children}</span>
 
       {props.isLoading && (
         <div className={styles.loader}>

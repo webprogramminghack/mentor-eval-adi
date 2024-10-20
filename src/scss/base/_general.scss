@@ -12,3 +12,89 @@ body {
   font-size: rem-calc(13);
   line-height: rem-calc(17);
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+$gap-scale: 0.25rem;
+@for $i from 1 through 10 {
+  .gap-#{$i} {
+    gap: $i * $gap-scale;
+  }
+}
+
+@mixin margin-utility($size) {
+  margin: $size;
+  &.mt-#{$size} { margin-top: $size; }
+  &.mr-#{$size} { margin-right: $size; }
+  &.mb-#{$size} { margin-bottom: $size; }
+  &.ml-#{$size} { margin-left: $size; }
+  &.mx-#{$size} { margin-left: $size; margin-right: $size; }
+  &.my-#{$size} { margin-top: $size; margin-bottom: $size; }
+}
+
+@for $i from 0 through 30 {
+  .m-#{$i} {
+    @include margin-utility(#{ $i }px);
+  }
+}
+
+.m-auto {
+  margin: auto;
+}
+
+@mixin padding-utility($size) {
+  padding: $size;
+  &.pt-#{$size} { padding-top: $size; }
+  &.pr-#{$size} { padding-right: $size; }
+  &.pb-#{$size} { padding-bottom: $size; }
+  &.pl-#{$size} { padding-left: $size; }
+  &.px-#{$size} { padding-left: $size; padding-right: $size; }
+  &.py-#{$size} { padding-top: $size; padding-bottom: $size; }
+}
+
+@for $i from 0 through 30 {
+  .m-#{$i} {
+    @include margin-utility(#{ $i }px);
+  }
+
+  .p-#{$i} {
+    @include padding-utility(#{ $i }px);
+  }
+}
+
+.p-auto {
+  margin: auto;
+}
+
+.justify-beetwen{
+  justify-content: space-between;
+}
+
+.medium{
+  width: 720px;
+
+   @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+.text-center{
+  text-align: center;
+}
+
+.bg-white{
+  background-color: white;
+}
